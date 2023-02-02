@@ -8,6 +8,10 @@ import java.util.*;
  * @Description: The linkedList challenge class in this section
  */
 public class TheLinkedListChallenge {
+    private static boolean isStop = false;
+    private static boolean forward = true;
+    private static boolean backward = false;
+
     public static void main(String[] args) {
         linkedListChallenge();
     }
@@ -36,20 +40,16 @@ public class TheLinkedListChallenge {
     private static void travel(Scanner scanner,
                                   StringBuilder stringBuilder,
                                   ListIterator<String> iterator) {
-        Map<String, Boolean> flags = new HashMap<>(8);
-        flags.put("isStop", false);
-        flags.put("forward", true);
-        flags.put("backward", false);
-        while (!flags.get("isStop")) {
+        while (!isStop) {
             String option = scanner.nextLine().toUpperCase();
             switch (option) {
                 case "F" -> {
                     if (iterator.hasNext()) {
-                        if (flags.get("backward")) {
+                        if (backward) {
                             iterator.next();
-                            movingForward(stringBuilder, iterator, flags);
-                        } else if (flags.get("forward")) {
-                            movingForward(stringBuilder, iterator, flags);
+                            movingForward(stringBuilder, iterator);
+                        } else if (forward) {
+                            movingForward(stringBuilder, iterator);
                         }
                     } else {
                         System.out.println("Now you are at Perth");
@@ -57,17 +57,17 @@ public class TheLinkedListChallenge {
                 }
                 case "B" -> {
                     if (iterator.hasPrevious()) {
-                        if (flags.get("forward")) {
+                        if (forward) {
                             iterator.previous();
-                            movingBackward(stringBuilder, iterator, flags);
-                        } else if (flags.get("backward")) {
-                            movingBackward(stringBuilder, iterator, flags);
+                            movingBackward(stringBuilder, iterator);
+                        } else if (backward) {
+                            movingBackward(stringBuilder, iterator);
                         }
                     } else {
-                        if (flags.get("backward")) {
+                        if (backward) {
                             stringBuilder.append(" -----> Sydney");
-                            flags.put("forward", true);
-                            flags.put("backward", false);
+                            forward = true;
+                            backward = false;
                         }
                         System.out.println("Now you are at Sydney");
                     }
@@ -76,15 +76,13 @@ public class TheLinkedListChallenge {
                     System.out.println(stringBuilder);
                 }
                 case "M" -> showMenu();
-                case "Q" -> flags.put("isStop", true);
+                case "Q" -> isStop = true;
                 default -> System.out.println("Invalid Option!");
             }
         }
     }
 
-    private static void movingBackward(StringBuilder stringBuilder,
-                                       ListIterator<String> iterator,
-                                       Map<String, Boolean> flags) {
+    private static void movingBackward(StringBuilder stringBuilder, ListIterator<String> iterator) {
         if (iterator.hasPrevious()) {
             String previous = iterator.previous();
             stringBuilder.append(" -----> ").append(previous);
@@ -93,13 +91,11 @@ public class TheLinkedListChallenge {
             stringBuilder.append(" -----> Sydney");
             System.out.println("Now you are at Sydney");
         }
-        flags.put("backward", true);
-        flags.put("forward", false);
+        backward = true;
+        forward = false;
     }
 
-    private static void movingForward(StringBuilder stringBuilder,
-                                      ListIterator<String> iterator,
-                                      Map<String, Boolean> flags) {
+    private static void movingForward(StringBuilder stringBuilder, ListIterator<String> iterator) {
         if (iterator.hasNext()) {
             String next = iterator.next();
             stringBuilder.append(" -----> ").append(next);
@@ -108,7 +104,7 @@ public class TheLinkedListChallenge {
             stringBuilder.append(" -----> Perth");
             System.out.println("Now you are at Perth");
         }
-        flags.put("forward", true);
-        flags.put("backward", false);
+        forward = true;
+        backward = false;
     }
 }
