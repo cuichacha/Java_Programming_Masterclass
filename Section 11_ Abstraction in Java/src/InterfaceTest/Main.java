@@ -26,6 +26,7 @@ public class Main {
         flier.takeOff();
         if (flier instanceof Trackable trackable) {
             trackable.track();
+            Trackable.track("");
         }
     }
 }

@@ -6,5 +6,14 @@ package InterfaceTest;
  * @Description: The flight enabled interface in interface test
  */
 public interface FlightEnabled {
+
     void takeOff();
+
+    default void gilde() {
+
+    }
+
+    private void test() {
+
+    }
 }

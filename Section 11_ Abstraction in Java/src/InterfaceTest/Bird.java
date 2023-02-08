@@ -21,4 +21,9 @@ public class Bird extends Animal implements FlightEnabled, Trackable {
     public void track() {
 
     }
+
+    @Override
+    public void gilde() {
+        FlightEnabled.super.gilde();
+    }
 }

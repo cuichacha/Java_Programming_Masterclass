@@ -8,4 +8,12 @@ package InterfaceTest;
 public interface Trackable {
 
     void track();
+
+    static void track(String startingPoint) {
+
+    }
+
+    private static void test() {
+
+    }
 }
