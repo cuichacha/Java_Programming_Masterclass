@@ -1,5 +1,12 @@
 package InterfaceTest;
 
+import InterfaceTest.classes.Cow;
+import InterfaceTest.classes.DragonFly;
+import InterfaceTest.classes.Eagle;
+import InterfaceTest.interfaces.Eat;
+import InterfaceTest.interfaces.Fly;
+import InterfaceTest.interfaces.Sleep;
+
 /**
  * @author Will Dufresne
  * @Date: 2023-02-07 20:10
@@ -7,26 +14,23 @@ package InterfaceTest;
  */
 public class Main {
     public static void main(String[] args) {
-        Bird bird = new Bird();
-        Animal animal = bird;
-        Truck truck = new Truck();
-        Jet jet = new Jet();
-        // animal.move();
-        // FlightEnabled flightEnabled = bird;
-        // flightEnabled.takeOff();
-        // Trackable trackable = bird;
-        // trackable.track();
-        inFlight(bird);
-        // inFlight(truck);
-        inFlight(jet);
+        Eagle eagle = new Eagle();
+        System.out.println(eagle.action());
+        eagle.fly();
+        eagle.walk();
+        eagle.addAction(new Eat() {});
+        System.out.println(eagle.action());
+        System.out.println("-".repeat(20));
+        Cow cow = new Cow();
 
+        cow.addAction(new Sleep() {});
+        System.out.println(cow.action());
+        System.out.println("-".repeat(20));
+        DragonFly dragonFly = new DragonFly();
+        System.out.println(dragonFly.action());
     }
 
-    private static void inFlight(FlightEnabled flier) {
-        flier.takeOff();
-        if (flier instanceof Trackable trackable) {
-            trackable.track();
-            Trackable.track("");
-        }
+    private static void inFlight(Fly flier) {
+
     }
 }
