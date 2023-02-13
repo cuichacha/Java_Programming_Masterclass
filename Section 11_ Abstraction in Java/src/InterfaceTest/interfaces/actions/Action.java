@@ -1,4 +1,4 @@
-package InterfaceTest.interfaces;
+package InterfaceTest.interfaces.actions;
 
 /**
  * @author Will Dufresne

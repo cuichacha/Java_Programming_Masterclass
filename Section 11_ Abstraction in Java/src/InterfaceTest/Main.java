@@ -1,11 +1,12 @@
 package InterfaceTest;
 
-import InterfaceTest.classes.Cow;
-import InterfaceTest.classes.DragonFly;
 import InterfaceTest.classes.Eagle;
-import InterfaceTest.interfaces.Eat;
-import InterfaceTest.interfaces.Fly;
-import InterfaceTest.interfaces.Sleep;
+import InterfaceTest.classes.Jet;
+import InterfaceTest.interfaces.actions.moves.Fly;
+import InterfaceTest.interfaces.actions.moves.Walk;
+import InterfaceTest.interfaces.states.Breathe;
+
+import java.util.Set;
 
 /**
  * @author Will Dufresne
@@ -16,18 +17,22 @@ public class Main {
     public static void main(String[] args) {
         Eagle eagle = new Eagle();
         System.out.println(eagle.action());
-        eagle.fly();
-        eagle.walk();
-        eagle.addAction(new Eat() {});
-        System.out.println(eagle.action());
-        System.out.println("-".repeat(20));
-        Cow cow = new Cow();
+        eagle.addStates(Set.of(new Breathe() {
+        }));
+        eagle.addActions(Set.of(new Fly() {
+            @Override
+            public void takeOff() {
+            }
 
-        cow.addAction(new Sleep() {});
-        System.out.println(cow.action());
-        System.out.println("-".repeat(20));
-        DragonFly dragonFly = new DragonFly();
-        System.out.println(dragonFly.action());
+            @Override
+            public void gilde() {
+            }
+        }, new Walk() {
+        }));
+        System.out.println(eagle.action());
+        System.out.println(eagle.fly());
+        Jet jet = new Jet();
+        System.out.println(jet.fly());
     }
 
     private static void inFlight(Fly flier) {

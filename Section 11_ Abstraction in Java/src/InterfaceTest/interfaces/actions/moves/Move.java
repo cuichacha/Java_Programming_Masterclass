@@ -1,4 +1,6 @@
-package InterfaceTest.interfaces;
+package InterfaceTest.interfaces.actions.moves;
+
+import InterfaceTest.interfaces.actions.Action;
 
 /**
  * @author Will Dufresne

@@ -1,4 +1,4 @@
-package InterfaceTest.interfaces;
+package InterfaceTest.interfaces.actions.moves;
 
 /**
  * @author Will Dufresne
@@ -11,7 +11,12 @@ public interface Fly extends Move {
 
     void gilde();
 
-    default void fly() {
-        System.out.println(getClass().getSimpleName() + " is flying");
+    @Override
+    default String action() {
+        return fly();
+    }
+
+    default String fly() {
+        return " is flying";
     }
 }

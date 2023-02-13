@@ -1,4 +1,4 @@
-package InterfaceTest.interfaces;
+package InterfaceTest.interfaces.actions.moves;
 
 /**
  * @author Will Dufresne
@@ -12,7 +12,7 @@ public interface Run extends Move {
         return run();
     }
 
-    private String run() {
+    default String run() {
         return " is running";
     }
 }

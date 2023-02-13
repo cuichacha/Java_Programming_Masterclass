@@ -1,8 +1,9 @@
 package InterfaceTest.classes;
 
-import InterfaceTest.interfaces.Action;
+import InterfaceTest.interfaces.actions.Action;
+import InterfaceTest.interfaces.states.State;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * @author Will Dufresne
@@ -10,16 +11,6 @@ import java.util.List;
  * @Description: The eagle class in interface test
  */
 public class Eagle extends Bird {
-
-    @Override
-    public void breatheIn() {
-
-    }
-
-    @Override
-    public void breatheOut() {
-
-    }
 
     @Override
     public void takeOff() {
@@ -32,32 +23,42 @@ public class Eagle extends Bird {
     }
 
     @Override
+    public Set<Action> getActions() {
+        return super.getActions();
+    }
+
+    @Override
+    public void addActions(Set<Action> actions) {
+        super.addActions(actions);
+    }
+
+    @Override
+    public void removeActions(Set<Action> actions) {
+        super.removeActions(actions);
+    }
+
+    @Override
+    public Set<State> getStates() {
+        return super.getStates();
+    }
+
+    @Override
+    public void addStates(Set<State> states) {
+        super.addStates(states);
+    }
+
+    @Override
+    public void removeStates(Set<State> states) {
+        super.removeStates(states);
+    }
+
+    @Override
     public String action() {
         return super.action() == null ? "No actions" : getClass().getSimpleName() + super.action();
     }
 
     @Override
-    public List<Action> getActions() {
-        return super.getActions();
-    }
-
-    @Override
-    public void setActions(List<Action> actions) {
-        super.setActions(actions);
-    }
-
-    @Override
-    public void addAction(Action action) {
-        super.addAction(action);
-    }
-
-    @Override
-    public void fly() {
-        super.fly();
-    }
-
-    @Override
-    public void walk() {
-        super.walk();
+    public String fly() {
+        return getClass().getSimpleName() + super.fly();
     }
 }
