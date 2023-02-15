@@ -8,5 +8,8 @@ package AbstractClassTest;
 public abstract class Animal {
     private String name;
 
+    /**
+     * The abstract move method
+     */
     protected abstract void move();
 }

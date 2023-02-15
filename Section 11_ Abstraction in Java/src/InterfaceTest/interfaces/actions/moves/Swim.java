@@ -7,11 +7,19 @@ package InterfaceTest.interfaces.actions.moves;
  */
 public interface Swim extends Move {
 
+    /**
+     * The action method in Swim calls swim() by default
+     * @return Swim action
+     */
     @Override
     default String action() {
         return swim();
     }
 
+    /**
+     * The swim method in Swim
+     * @return " is swimming"
+     */
     default String swim() {
         return " is swimming";
     }

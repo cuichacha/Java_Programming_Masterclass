@@ -7,11 +7,19 @@ package InterfaceTest.interfaces.actions.moves;
  */
 public interface Walk extends Move {
 
+    /**
+     * The action method in Walk calls walk() by default
+     * @return Walk action
+     */
     @Override
     default String action() {
         return walk();
     }
 
+    /**
+     * The walk method in Walk
+     * @return " is walking"
+     */
     default String walk() {
         return " is walking";
     }

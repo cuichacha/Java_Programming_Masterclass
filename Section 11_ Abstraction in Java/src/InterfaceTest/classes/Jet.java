@@ -17,7 +17,7 @@ public class Jet implements Move, Fly {
     }
 
     @Override
-    public void gilde() {
+    public void glide() {
 
     }
 

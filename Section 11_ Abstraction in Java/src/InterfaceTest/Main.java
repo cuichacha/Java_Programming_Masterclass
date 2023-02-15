@@ -25,7 +25,7 @@ public class Main {
             }
 
             @Override
-            public void gilde() {
+            public void glide() {
             }
         }, new Walk() {
         }));

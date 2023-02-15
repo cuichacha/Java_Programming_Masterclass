@@ -18,7 +18,7 @@ public class Eagle extends Bird {
     }
 
     @Override
-    public void gilde() {
+    public void glide() {
 
     }
 
