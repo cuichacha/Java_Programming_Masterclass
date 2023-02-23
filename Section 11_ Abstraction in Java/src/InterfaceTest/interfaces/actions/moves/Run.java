@@ -7,19 +7,11 @@ package InterfaceTest.interfaces.actions.moves;
  */
 public interface Run extends Move {
 
-    /**
-     * The action method in Run calls run() by default
-     * @return Run action
-     */
     @Override
     default String action() {
         return run();
     }
 
-    /**
-     * The run method in Run
-     * @return " is running"
-     */
     default String run() {
         return " is running";
     }

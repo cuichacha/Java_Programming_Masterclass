@@ -7,9 +7,5 @@ package InterfaceTest.interfaces.actions;
  */
 public interface Action {
 
-    /**
-     * The action method in Action
-     * @return Specific action by implementation
-     */
     String action();
 }

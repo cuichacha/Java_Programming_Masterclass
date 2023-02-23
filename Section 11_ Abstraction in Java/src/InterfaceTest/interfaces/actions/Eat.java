@@ -7,10 +7,6 @@ package InterfaceTest.interfaces.actions;
  */
 public interface Eat extends Action {
 
-    /**
-     * The action method in Eat
-     * @return " is eating"
-     */
     @Override
     default String action() {
         return " is eating";

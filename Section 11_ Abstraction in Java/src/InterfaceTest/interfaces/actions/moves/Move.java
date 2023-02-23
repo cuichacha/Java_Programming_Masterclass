@@ -9,10 +9,6 @@ import InterfaceTest.interfaces.actions.Action;
  */
 public interface Move extends Action {
 
-    /**
-     * The action method in Action
-     * @return " is moving"
-     */
     @Override
     default String action() {
         return " is moving";
